@@ -22,12 +22,17 @@ const images = [
 
   // Add more image paths
 ];
+const radius = (window.innerWidth < 500 ? 100 : 500);
 
 const Cosmos = () => {
+
+  
+
   const [activeIndex, setActiveIndex] = useState(0);
   const [removedImages, setRemovedImages] = useState([]);
   const numberOfImages = images.length;
-  const radius = 500; // Radius of the circle
+
+ 
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -41,7 +46,7 @@ const Cosmos = () => {
         return [...prevRemovedImages, activeIndex];
       });
       setActiveIndex((prevIndex) => (prevIndex + 1) % numberOfImages);
-    }, 10000); // Change image every 3 seconds
+    }, 10000); // Change image every 10 seconds
 
     return () => clearInterval(interval);
   }, [activeIndex, numberOfImages, removedImages]);
