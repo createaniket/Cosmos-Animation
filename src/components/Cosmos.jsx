@@ -47,45 +47,39 @@ const Cosmos = () => {
   }, [activeIndex, numberOfImages, removedImages]);
 
   return (
+    <div className="cosmosmain">
+      <h1 className="cosmosheading">COSMOS ANIMATION</h1>
+      <div className="circle-container">
+        <video autoPlay muted loop id="background-video">
+          <source src={BckgrndVdo} type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
 
-    <>
-    <h1 className="cosmosheading">
-    COSMOS ANIMATION
-</h1>
-    <div className="circle-container">
-
-
-
-      <video autoPlay muted loop id="background-video">
-        <source src={BckgrndVdo} type="video/mp4" />
-        Your browser does not support the video tag.
-      </video>
-
-      <div className="circle">
-        {images.map((src, index) => {
+        <div className="circle">
+          {images.map((src, index) => {
             const angle = (360 / numberOfImages) * index;
             const translateX = radius; // Radius of the circle
             const isActive = index === activeIndex;
             const isRemoved = removedImages.includes(index);
-            
+
             return (
-                !isRemoved && (
-                    <img
-                    key={index}
-                    src={src}
-                    alt={`some ${index + 1}`}
-                    className={`image ${isActive ? "active" : ""}`}
-                    style={{
-                        transform: `rotate(${angle}deg) translateX(${translateX}px) rotate(${-angle}deg)`,
-                        transformOrigin: "center center", // Center of the image
-                    }}
-                    />
-                )
+              !isRemoved && (
+                <img
+                  key={index}
+                  src={src}
+                  alt={`some ${index + 1}`}
+                  className={`image ${isActive ? "active" : ""}`}
+                  style={{
+                    transform: `rotate(${angle}deg) translateX(${translateX}px) rotate(${-angle}deg)`,
+                    transformOrigin: "center center", // Center of the image
+                  }}
+                />
+              )
             );
-        })}
+          })}
+        </div>
       </div>
     </div>
-        </>
   );
 };
 
