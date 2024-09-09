@@ -1,0 +1,76 @@
+.circle-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Full height of viewport */
+
+    overflow: hidden;
+  }
+  
+  .circle {
+    position: relative;
+    animation: rotate 10s linear infinite;
+  }
+  
+  .image {
+    position: absolute;
+    width: 150px; /* Size of the images */
+    height: 150px; /* Size of the images */
+    border-radius: 50%;
+    object-fit: cover;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: transform 1s ease-in-out;
+    opacity: 0.8; /* Slight transparency for non-active images */
+  }
+  
+  .active {
+    animation: moveToCenter 10s ease-in-out forwards;
+    opacity: 1; /* Full opacity for active image */
+  }
+  
+
+
+  #background-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+  }
+
+
+  .cosmosheading{
+
+    color: #fff;
+    text-align: center;
+  }
+
+  @keyframes moveToCenter {
+    0% {
+      transform: rotate(360deg) translateX(500px) rotate(0deg);
+      opacity: 1; /* Full opacity at the start */
+      scale: 100%;
+    }
+    100% {
+      transform: rotate(0deg) translateX(0) rotate(360deg);
+      opacity: 0; /* Fully transparent at the end */
+      scale: 00%;
+    }
+  }
+  
+  
+  @keyframes rotate {
+    from {
+      transform: rotate(360deg);
+    }
+    to {
+      transform: rotate(0deg);
+    }
+  }
+  
